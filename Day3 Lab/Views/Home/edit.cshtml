@@ -1,0 +1,44 @@
+﻿@model user_data
+@{
+    ViewBag.Title = "edit";
+}
+
+<h2>edit</h2>
+
+<div class="form-group">
+    <form method="post">
+        @Html.HiddenFor(n => n.user_id)
+
+        <div class="row">
+            <div class="col-md-3">@Html.LabelFor(n => n.user_name)</div>
+            <div class="col-md-5">@Html.TextBoxFor(n => n.user_name, new { @class = "form-control" })</div>
+            <div class="col-md-3">@Html.ValidationMessageFor(n => n.user_name)</div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-3">@Html.LabelFor(n => n.age)</div>
+            <div class="col-md-5">@Html.TextBoxFor(n => n.age, new { @class = "form-control" })</div>
+            <div class="col-md-3">@Html.ValidationMessageFor(n => n.age)</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">@Html.LabelFor(n => n.adress)</div>
+            <div class="col-md-5">@Html.TextBoxFor(n => n.adress, new { @class = "form-control" })</div>
+            <div class="col-md-3">@Html.ValidationMessageFor(n => n.adress)</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">@Html.LabelFor(n => n.email)</div>
+            <div class="col-md-5">@Html.TextBoxFor(n => n.email, new { @class = "form-control" })</div>
+            <div class="col-md-3">@Html.ValidationMessageFor(n => n.email)</div>
+        </div>
+        <div class="row">
+            <div><img src="~/attach/@Model.photo" /></div>
+            <br />
+            <div><input type="file" name="photo" /></div>
+        </div>
+        <br />
+        <br />
+        <input type="submit" class="btn btn-info" value="update" />
+    </form>
+</div>
+

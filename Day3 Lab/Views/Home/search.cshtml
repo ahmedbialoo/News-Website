@@ -1,0 +1,36 @@
+﻿@model PagedList.PagedList<news>
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "user_news";
+}
+
+<h2>user_news</h2>
+<div class="container">
+    <form>
+        <div class="text-center">@Html.TextBox("search") <input type="submit" value="search" class="btn glyphicon-search" /></div>
+    </form>
+</div>
+<table class="table">
+    <tr>
+        <td>@Html.ActionLink("Title", "user_news", new { sort = "title" })</td>
+        <td>Brief</td>
+        <td>Description</td>
+        <td>photo</td>
+        <td>@Html.ActionLink("time", "user_news", new { sort = "time" })</td>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.title</td>
+            <td>@item.brief</td>
+            <td>@item.description</td>
+            <td><img src="~/attach/@item.photo" width="100" height="100" /></td>
+            <td>@item.datetime</td>
+            <td>@Html.ActionLink("profile", "profile", new { id = item.user_id }, new { @class = "btn btn-primary" })</td>
+        </tr>
+    }
+
+</table>
+@Html.PagedListPager(Model, n => Url.Action("user_news", new { pageno = n, sort = ViewBag.sort, search = ViewBag.search }))
+

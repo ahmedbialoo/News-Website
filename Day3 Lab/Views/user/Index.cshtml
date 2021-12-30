@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div class="text-center">
+    @Html.DropDownList("droplist", (SelectList)ViewBag.cats,"all news", new {@class="form-control"})
+</div>
+
+<div id="d1">
+
+
+</div>
+
+
+@section scripts{
+    
+    <script>
+        $(_ => {
+
+            $.ajax({
+                url: '/user/show_news',
+                method: 'GET',
+                success: data => {
+                    $("#d1").append(data)
+                }
+            })
+        })
+
+        $("#droplist").on("change", _ => {
+            let val = $("#droplist").val();
+            $("#d1").load("/user/show_news?droplist=" + val);
+        })
+
+
+
+    </script>
+    
+    }

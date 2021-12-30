@@ -1,0 +1,35 @@
+﻿@model news
+@{
+    ViewBag.Title = "create_new";
+}
+
+<h2>Create New</h2>
+
+<div class="form-group">
+    <form method="post" enctype="multipart/form-data">
+        
+        <div class="row">
+            <div class="col-md-3">@Html.LabelFor(n => n.title)</div>
+            <div class="col-md-5">@Html.TextBoxFor(n => n.title, new { @class = "form-control" })</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">@Html.LabelFor(n => n.brief)</div>
+            <div class="col-md-5">@Html.TextBoxFor(n => n.brief, new { @class = "form-control" })</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">@Html.LabelFor(n => n.description)</div>
+            <div class="col-md-5">@Html.TextAreaFor(n => n.description, new { @class = "form-control" })</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">@Html.LabelFor(n => n.photo)</div>
+            <div class="col-md-5 form-control"><input type="file" name="photo" /></div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">@Html.LabelFor(n => n.cat_id)</div>
+            <div class="col-md-5">@Html.DropDownListFor(n => n.cat_id ,(SelectList)ViewBag.cats, new {@class = "form-control"})</div>
+        </div>
+
+        <input type="submit" class="btn btn-info" value="Create" />
+    </form>
+</div>

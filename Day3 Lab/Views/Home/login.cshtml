@@ -1,0 +1,30 @@
+﻿@model user_data
+@{
+    ViewBag.Title = "login";
+}
+
+<h2>login</h2>
+<br />
+<br />
+<div class="form-group">
+    <form method="post">
+
+        <div class="row">
+            <div class="col-md-2">@Html.LabelFor(n =>n.email)</div>
+            <div class="col-md-1">@Html.TextBoxFor( n=> n.email)</div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-2">@Html.LabelFor(n => n.password)</div>
+            <div class="col-md-1">@Html.PasswordFor(n => n.password)</div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">@Html.CheckBox("rememberme") Remember Me</div>
+        </div>
+        <br />
+        <br />
+        <p>@ViewBag.error</p>
+        <input type="submit" class="btn btn-success" value="Login" />
+    </form>
+</div>
+

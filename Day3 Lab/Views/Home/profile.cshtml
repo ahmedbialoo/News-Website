@@ -1,0 +1,30 @@
+﻿@model user_data
+@{
+    ViewBag.Title = "profile";
+}
+
+<h2>profile</h2><br />
+
+@Html.ActionLink("News", "user_news", new { id = Model.user_id }, new { @class = "btn btn-primary" })
+@Html.ActionLink("Change Password", "change_password", new { id = Model.user_id }, new { @class = "btn btn-primary" })
+
+
+<table class="table">
+    <tr>
+        <td>Name</td>
+        <td>Adress</td>
+        <td>Age</td>
+        <td>photo</td>
+        <td>@Html.ActionLink("edit", "edit_profile", new { id = Model.user_id }, new { @class = "btn btn-info" })</td>|
+
+    </tr>
+
+
+    <tr>
+        <td>@Model.user_name</td>
+        <td>@Model.adress</td>
+        <td>@Model.age</td>
+        <td><img src="~/attach/@Model.photo" /></td>
+        <td></td>
+    </tr>
+</table>

@@ -1,0 +1,11 @@
+﻿
+
+
+@foreach (var item in (List<catalog>)ViewBag.cats)
+{
+<li>@Html.ActionLink(item.cat_name, "newsByCat", "user", new { catid = item.cat_id }, null)</li>
+}
+
+
+
+

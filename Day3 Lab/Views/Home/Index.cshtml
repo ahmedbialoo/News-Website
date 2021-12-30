@@ -1,0 +1,29 @@
+﻿@model List<user_data>
+@{
+    ViewBag.Title = "Home Page";
+}
+<br />
+<br />
+<div>
+    @foreach (var item in Model)
+    {
+        <div class="row">
+            <div class="col-md-3">name</div>
+            <div class="col-md-5">@item.user_name</div>
+            <div class="col-md-3"> <img src="~/attach/@item.photo" width="100" height="100"/></div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">age</div>
+            <div class="col-md-5">@item.age</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">adress</div>
+            <div class="col-md-5">@item.adress</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">email</div>
+            <div class="col-md-5">@item.email</div>
+        </div>
+        
+    }
+</div>
